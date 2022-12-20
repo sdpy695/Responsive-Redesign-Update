@@ -65,16 +65,18 @@
             </script> -->
 
     </section>
-    <div id="breadcrumbBar" style="height: 20px">
-   
-        Home    >
+    <div id="breadcrumbBar" style="height: 20px; display: inline-flex; width: 80%">
+        <!-- <div  style="display:inline-block"> -->
+            <div class="button" style="border: 0px; padding: 1px; margin: 1px;" > Home       </div> <div style="padding-left: 1%">></div> 
+        <!-- </div> -->
+        
     </div>
   
 
     <div id="main-wrapper"> 
 
         <div id="left-column" style=" margin-bottom: 2vmax;">
-            <div style="grid-column: 1; " class="box-wrapper">
+            <div style="grid-column: 1; height: 100px" class="box-wrapper">
                 <div  style='background: #FFE074;' class="background-box">
                 </div>
                 <div class="content-box">
@@ -99,7 +101,7 @@
                 <div style="background: #C3DDB3; height:485px;" class="background-box">
                 </div>
                 <div style="height:max-content" class="content-box">
-                    <div style="height:max-content" class="inner-content-box">
+                    <div style="height:max-content" id="inner-content-box">
                     
                         <h2>News and Publications</h2> 
     
@@ -165,54 +167,48 @@
             </div>
 
 
-            <div style="grid-column: 2;" class="box-wrapper">
-                <div style="background: #404040;"class="background-box">
+            <div style="grid-column: 2; height: 164px" class="box-wrapper"  style="height:fit-content">
+                <div style="background: #404040;"class="background-box-2">
                 </div>
-                <div class="content-box">
-                    <div class="inner-content-box">
+                <div class="content-box"  style="height:fit-content">
+                    <div class="inner-content-box"  style="height:fit-content">
                     
                         <h2>Americans in Belgium</h2> 
 
-                        <div style="display: flex; justify-content:flex-end">
-                            <div  class="button">More info</div>
+                        <div style="display: flex; flex-direction: column; justify-content:flex-end">
+                            <p style="text-overflow: ellipsis;">Find legal documents and resources for Americans abroad. </p>
+                            <div style="display: flex; flex-direction:row">
+                                <div  class="button">Documents</div>
+                                <div  class="button">Information</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
         
-        <div style="grid-column: 2;" class="box-wrapper">
-            <div style="background: #FFE074;"class="background-box">
+        <div style="grid-column: 2; height: 164px; " class="box-wrapper" >
+            <div style="background: #FFE074;"class="background-box-2">
             </div>
-            <div class="content-box">
-                <div class="inner-content-box">
+            <div class="content-box" style="height:fit-content">
+                <div class="inner-content-box"  style="height:fit-content">
                 
                     <h2>Belgians in the US</h2> 
-                    <div style="display: flex; justify-content:flex-end">
-                        <div  class="button">More info</div>
-                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content:flex-end">
+                        <p style="text-overflow: ellipsis;">Find legal documents and resources for Belgians abroad. </p>
+                        <div style="display: flex; flex-direction:row">
+                            <div  class="button">Documents</div>
+                            <div  class="button">Information</div>
+                        </div>
+                       
                 </div>
             </div>
         </div>
         </div>
-        
-
-        
-
-       
-
-
-
+    </div>
     </div>
 
-   
-
-    <div id="box-wrapper">
-    </div>
-
-      <p style="color:rgb(27, 27, 27); margin-top: 10%; text-align:center">Disclaimer | Privacy | Accessibility statement | © FPS Foreign Affairs, Foreign Trade and Development Cooperation</p>
-    </div>
-
+    <p style="color:rgb(27, 27, 27); margin-top: 4%; text-align:center">Disclaimer | Privacy | Accessibility statement | © FPS Foreign Affairs, Foreign Trade and Development Cooperation</p>
 
 
 </body>
@@ -222,11 +218,24 @@
 
     window.onload = function() {resizeaboutbox()}
     function resizeaboutbox() {
-        console.log(document.getElementById("extralong-aboutbox"))
-        console.log(document.getElementById("aboutbox"))
-        document.getElementById("extralong-aboutbox").style.height=(document.getElementById("aboutbox").style.height);
-        console.log(document.getElementById("extralong-aboutbox").style.height)
-        console.log(document.getElementById("aboutbox").style.height)
+        console.log('box-wrap', document.querySelectorAll('div.box-wrapper'))
+
+        for (let i =0; i < document.querySelectorAll('div.box-wrapper').length; i++){
+            console.log('new box-wrap ', document.querySelectorAll('div.box-wrapper')[i])
+            console.log('new box-wrap  heights', document.querySelectorAll('div.box-wrapper')[i].offsetHeight)
+            console.log('inner content box', document.querySelectorAll('div.inner-content-box')[i].clientHeight)
+            console.log('1', document.querySelectorAll('div.box-wrapper')[i].style)
+            document.querySelectorAll('div.box-wrapper')[i].style[2]=document.querySelectorAll('div.inner-content-box')[i].clientHeight
+            console.log('2', document.querySelectorAll('div.box-wrapper')[i].style[2])
+            console.log('heightp', document.querySelectorAll('div.box-wrapper')[i].style[2])
+        }
+        
+        console.log('elab height' , document.getElementById("extralong-aboutbox").style.height)
+        document.getElementById("extralong-aboutbox").style.height=document.getElementById("aboutbox").clientHeight
+        document.getElementById("extralong-newsbox").style.height=document.getElementById("inner-content-box").clientHeight
+        // console.log(document.getElementById("aboutbox").clientHeight)
+        console.log('elab height2' ,  document.getElementById("extralong-aboutbox").style.height)
+        // console.log(document.getElementById("aboutbox").style.height)
     }
     </script>
 </html>

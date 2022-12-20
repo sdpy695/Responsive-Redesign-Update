@@ -74,7 +74,7 @@
     justify-content: center;
     grid-template-columns: 50% 50%;
     gap: 2vmax;
-    padding: 5vmax;
+    padding: 5vmax 5vmax 0 5vmax;
     height: max-content;
       /*
     padding-top: 2.5%;
@@ -117,7 +117,8 @@
   }
 
   #aboutbox{
-    height: 400px;
+    height:max-content;
+    /* height: 400px; */
   }
 
   .box-wrapper{
@@ -140,6 +141,18 @@
     background: #E4ACB2;
     border: 1pt solid #000000;
   }
+
+  .background-box-2{
+    position:absolute;
+    width: 90%;
+    height: 150px;
+    left: 0px;
+    top: 0px;
+  
+    background: #E4ACB2;
+    border: 1pt solid #000000;
+  }
+
 
 
   .content-box:hover{
@@ -173,6 +186,13 @@
   }
 
   .inner-content-box{
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    /* max-height: 95%; */
+
+  }
+  #inner-content-box{
     padding:20px;
     display: flex;
     flex-direction: column;
@@ -275,6 +295,7 @@
     
     } */
     #main-wrapper {
+
         /* flex: row; */
     }
     #outergrid {
@@ -283,6 +304,10 @@
     .lang-button{
       width: min(20%, 4vw);
     }
+    .background-box2{
+      height: 146px;
+    }
+
   }
   @media (max-width: 600px) {
     .info-box {
@@ -296,7 +321,7 @@
       justify-content: center;
       grid-template-columns: 100%;
       gap: 73vmax;
-      padding: 5vmax;
+      /* padding:  5vmax 5vmax 0 5vmax; */
       height: max-content;
     }
 
@@ -311,6 +336,10 @@
     }
     .lang-button{
       width: min(20%, 4vw);
+    }
+
+    #background-box2{
+      height: 150px;
     }
   }
 
@@ -430,7 +459,7 @@
   
   p {
     color: #1E1E1E;
-    font-size: max(.7vmax, 8pt);
+    font-size: max(.7vmax, 10pt);
     margin-bottom: 1em;
     font-weight: 300;
     text-overflow: ellipsis;
